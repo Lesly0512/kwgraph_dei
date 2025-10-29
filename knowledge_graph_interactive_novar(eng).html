@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DEI 知識圖譜｜互動版（自動類型）</title>
+  <title>DEI Knowledge Graph</title>
   <script src="https://unpkg.com/vis-network@9.1.6/dist/vis-network.min.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/vis-network@9.1.6/styles/vis-network.min.css">
   <style>
@@ -23,44 +23,44 @@
 </head>
 <body>
   <header>
-    <h2 style="margin:0;">DEI 知識圖譜｜互動版 <span class="badge">自動偵測類型</span></h2>
-    <div class="muted">不含 Variable；節點類型由資料自動偵測建立，不會出現空白選項</div>
+    <h2 style="margin:0;">DEI Knowledge Graph <span class="badge"> </span></h2>
+    <div class="muted"> </div>
   </header>
 
   <section id="controls">
     <div class="card">
-      <label><b>搜尋節點</b></label>
-      <input id="q" placeholder="輸入 id 或 label 關鍵字">
-      <div class="muted">Enter 執行，清空欄位可重置</div>
+      <label><b>Search</b></label>
+      <input id="q" placeholder="id or label">
+      <div class="muted">Enter</div>
     </div>
 
     <div class="card">
-      <label><b>節點類型</b></label>
+      <label><b>type</b></label>
       <div id="typeBox"></div>
     </div>
 
     <div class="card">
-      <label><b>年份篩選</b></label>
-      <div class="muted">只影響有 year 屬性的節點（通常是 Paper）</div>
-      <label>起始年份：<span id="yminV"></span></label>
+      <label><b>Year Filter</b></label>
+      <div class="muted">Year</div>
+      <label>Start Year：<span id="yminV"></span></label>
       <input type="range" id="ymin" min="2000" max="2030" value="2015">
-      <label>結束年份：<span id="ymaxV"></span></label>
+      <label>End Year：<span id="ymaxV"></span></label>
       <input type="range" id="ymax" min="2000" max="2030" value="2025">
     </div>
 
     <div class="card">
-      <label><b>度數下限</b> <span class="muted">(連線多的節點更核心)</span></label>
+      <label><b>Degree threshold</b> <span class="muted">(nodes with more connections are more central)</span></label>
       <label>degree ≥ <span id="degV">0</span></label>
       <input type="range" id="deg" min="0" max="50" value="0">
       <div style="margin-top:8px; display:flex; gap:8px; flex-wrap:wrap;">
-        <button id="fit" class="btn">自動縮放</button>
-        <button id="reset" class="btn">重置篩選</button>
-        <button id="export" class="btn">匯出目前子圖（JSON）</button>
+        <button id="fit" class="btn">Auto zoom</button>
+        <button id="reset" class="btn">Reset filters</button>
+        <button id="export" class="btn">Export current subgraph（JSON）</button>
       </div>
     </div>
 
     <div class="card" id="detail">
-      <div class="muted">選取節點以查看屬性</div>
+      <div class="muted">Select a node to view properties</div>
       <pre id="meta"></pre>
     </div>
   </section>
